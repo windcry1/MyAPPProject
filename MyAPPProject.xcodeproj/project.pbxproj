@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E8D76C02BD8F27F0046FBA7 /* MAMyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8D76BF2BD8F27F0046FBA7 /* MAMyPageViewController.m */; };
 		7EE155EA28F4107E00CE9053 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE155E928F4107E00CE9053 /* AppDelegate.m */; };
 		7EE155F028F4107E00CE9053 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE155EF28F4107E00CE9053 /* ViewController.m */; };
 		7EE155F528F4107F00CE9053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE155F428F4107F00CE9053 /* Assets.xcassets */; };
@@ -18,6 +19,9 @@
 /* Begin PBXFileReference section */
 		010E035036F5AFB03699EA62 /* Pods_MyAPPProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAPPProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7659DC4C6760460F281C8670 /* Pods-MyAPPProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAPPProject.debug.xcconfig"; path = "Target Support Files/Pods-MyAPPProject/Pods-MyAPPProject.debug.xcconfig"; sourceTree = "<group>"; };
+		7E8D76BE2BD8F27F0046FBA7 /* MAMyPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAMyPageViewController.h; sourceTree = "<group>"; };
+		7E8D76BF2BD8F27F0046FBA7 /* MAMyPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAMyPageViewController.m; sourceTree = "<group>"; };
+		7E8D76C12BD8F5990046FBA7 /* MAHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAHelper.h; sourceTree = "<group>"; };
 		7EE155E528F4107E00CE9053 /* MyAPPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAPPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE155E828F4107E00CE9053 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7EE155E928F4107E00CE9053 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,7 +52,6 @@
 				7659DC4C6760460F281C8670 /* Pods-MyAPPProject.debug.xcconfig */,
 				FC3B44D0C69254846DE91CEF /* Pods-MyAPPProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +84,9 @@
 				7EE155F628F4107F00CE9053 /* LaunchScreen.storyboard */,
 				7EE155F928F4107F00CE9053 /* Info.plist */,
 				7EE155FA28F4107F00CE9053 /* main.m */,
+				7E8D76BE2BD8F27F0046FBA7 /* MAMyPageViewController.h */,
+				7E8D76BF2BD8F27F0046FBA7 /* MAMyPageViewController.m */,
+				7E8D76C12BD8F5990046FBA7 /* MAHelper.h */,
 			);
 			path = MyAPPProject;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 				7EE155F028F4107E00CE9053 /* ViewController.m in Sources */,
 				7EE155EA28F4107E00CE9053 /* AppDelegate.m in Sources */,
 				7EE155FB28F4107F00CE9053 /* main.m in Sources */,
+				7E8D76C02BD8F27F0046FBA7 /* MAMyPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
