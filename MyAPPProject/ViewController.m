@@ -31,7 +31,7 @@
         _button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
         [_button setBackgroundColor:[UIColor orangeColor]];
         [_button addTarget:self action:@selector(tapGesture) forControlEvents:UIControlEventTouchUpInside];
-        //[_button setTranslatesAutoresizingMaskIntoConstraints:YES];
+        [_button setTranslatesAutoresizingMaskIntoConstraints:YES];
     }
     return _button;
 }
