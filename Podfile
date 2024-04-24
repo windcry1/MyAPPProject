@@ -14,10 +14,9 @@ target 'MyAPPProject' do
 end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    # add 修改项目配置
     if target.platform_name == :ios
       target.build_configurations.each do |config|
-          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0' # 将11.0替换为您需要的目标版本号
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0' 
       end
     end
     # add end
