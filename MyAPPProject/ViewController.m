@@ -11,12 +11,12 @@
 #import "MAHelper.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
-
 typedef NS_ENUM(NSUInteger, fetchDataType) {
     fetchDataTypeHeader = 0,
     fetchDataTypeFooter,
 };
+
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, assign) BOOL state;
 @property (nonatomic, strong) UICollectionView *collectionView;
