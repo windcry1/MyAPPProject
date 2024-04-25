@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		754BADF0B89655420007DE0B /* Pods_MyAPPProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EE018989194F77E8F5194 /* Pods_MyAPPProject.framework */; };
+		7E6DA2632BDA870C00D04B19 /* MACollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DA2622BDA870C00D04B19 /* MACollectionViewCell.m */; };
 		7E8D76C02BD8F27F0046FBA7 /* MAMyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8D76BF2BD8F27F0046FBA7 /* MAMyPageViewController.m */; };
 		7EE155EA28F4107E00CE9053 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE155E928F4107E00CE9053 /* AppDelegate.m */; };
 		7EE155F028F4107E00CE9053 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE155EF28F4107E00CE9053 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E6DA2612BDA870C00D04B19 /* MACollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MACollectionViewCell.h; sourceTree = "<group>"; };
+		7E6DA2622BDA870C00D04B19 /* MACollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewCell.m; sourceTree = "<group>"; };
 		7E8D76BE2BD8F27F0046FBA7 /* MAMyPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAMyPageViewController.h; sourceTree = "<group>"; };
 		7E8D76BF2BD8F27F0046FBA7 /* MAMyPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAMyPageViewController.m; sourceTree = "<group>"; };
 		7E8D76C12BD8F5990046FBA7 /* MAHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAHelper.h; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				7E8D76BE2BD8F27F0046FBA7 /* MAMyPageViewController.h */,
 				7E8D76BF2BD8F27F0046FBA7 /* MAMyPageViewController.m */,
 				7E8D76C12BD8F5990046FBA7 /* MAHelper.h */,
+				7E6DA2612BDA870C00D04B19 /* MACollectionViewCell.h */,
+				7E6DA2622BDA870C00D04B19 /* MACollectionViewCell.m */,
 			);
 			path = MyAPPProject;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				7EE155EA28F4107E00CE9053 /* AppDelegate.m in Sources */,
 				7EE155FB28F4107F00CE9053 /* main.m in Sources */,
 				7E8D76C02BD8F27F0046FBA7 /* MAMyPageViewController.m in Sources */,
+				7E6DA2632BDA870C00D04B19 /* MACollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
