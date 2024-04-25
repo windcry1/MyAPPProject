@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UILabel *authorName;
 @property (nonatomic, strong) UIImageView *authorPic;
-@property (nonatomic, strong) UITableView *pics;
+@property (nonatomic, strong) UIView *separateLine;
+@property (nonatomic, strong) UICollectionView *pics;
 
 + (CGFloat)heightWithData:(NSDictionary *)data;
 - (void)fetchData:(NSDictionary *)data;
