@@ -99,9 +99,7 @@ typedef NS_ENUM(NSUInteger, fetchDataType) {
 - (MACollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"MACollectionViewCell";
     MACollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
     [cell fetchData:self.dataSource[indexPath.item]];
-    //cell.imageStr = _imagesArray[indexPath.item];
     return cell;
 }
 
@@ -116,36 +114,57 @@ typedef NS_ENUM(NSUInteger, fetchDataType) {
 #pragma mark - MJRefresh
 - (void)refresh {
     NSLog(@"called refresh");
-    [self fetchDataWithType:fetchDataTypeHeader];
-    [self.collectionView.mj_header endRefreshing];
+    __weak __typeof__(self) weakSelf = self;
+    [self fetchDataWithType:fetchDataTypeHeader completion:^{
+        __strong __typeof__(self) self = weakSelf;
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void)loadMore {
     NSLog(@"called loadMore");
-    [self fetchDataWithType:fetchDataTypeFooter];
-    [self.collectionView.mj_footer endRefreshing];
+    __weak __typeof__(self) weakSelf = self;
+    [self fetchDataWithType:fetchDataTypeFooter completion:^{
+        __strong __typeof__(self) self = weakSelf;
+        [self.collectionView.mj_footer endRefreshing];
+        [self.collectionView reloadData];
+    }];
 }
 
-- (void)fetchDataWithType:(fetchDataType)type{
+- (void)fetchDataWithType:(fetchDataType)type completion:(nullable void (^)(void))completion{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSDictionary *params = @{
-        @"key": [[NSUserDefaults standardUserDefaults] objectForKey:@"APIKey"],
+        @"key": [[NSUserDefaults standardUserDefaults] objectForKey:@"APIKey"]?:@"",
         @"page": @(self.getPage),
         @"type": @"top",
     };
+    __weak __typeof__(self) weakSelf = self;
     [manager GET:@"https://v.juhe.cn/toutiao/index" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        __strong __typeof__(self) self = weakSelf;
+        if (![responseObject objectForKey:@"result"] || [[responseObject objectForKey:@"result"] isEqual:[NSNull null]]) {
+            [self presentAlert];
+            completion?completion():nil;
+            return ;
+        }
         if (type == fetchDataTypeFooter) {
             [self.dataSource addObjectsFromArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
         } else if (type == fetchDataTypeHeader) {
             self.dataSource = [NSMutableArray arrayWithArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
         }
-        [self.collectionView reloadData];
+        completion?completion():nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Call for data error!" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *sureBtn = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertVC addAction:sureBtn];
-        [self presentViewController:alertVC animated:YES completion:nil];
+        __strong __typeof__(self) self = weakSelf;
+        [self presentAlert];
+        completion?completion():nil;
     }];
+}
+
+- (void)presentAlert {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Call for data error!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sureBtn = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertVC addAction:sureBtn];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end

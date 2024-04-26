@@ -128,18 +128,18 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewPicCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MACollectionViewPicCell" forIndexPath:indexPath];
-    [cell addSubview:cell.imageView];
-    NSURL *url = [NSURL URLWithString: [self.picsArray objectAtIndex:indexPath.item]];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            NSLog(@"data:%@",data);
-            if (data) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIImage *image = [UIImage imageWithData:data];
-                    [cell.imageView setImage:image];
-                });
-            }
-        });
+        NSURL *url = [NSURL URLWithString: [self.picsArray objectAtIndex:indexPath.item]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSLog(@"data:%@",data);
+        if (data) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage *image = [UIImage imageWithData:data];
+                [cell.imageView setImage:image];
+                [cell addSubview:cell.imageView];
+            });
+        }
+    });
     return cell;
 }
 

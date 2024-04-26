@@ -46,7 +46,7 @@
         make.right.mas_lessThanOrEqualTo(self.APIKeyTextField.mas_left).offset(-5);
         make.top.equalTo(self.view).offset(150);
         make.height.mas_equalTo(40);
-        make.width.mas_greaterThanOrEqualTo(50);
+        make.width.mas_equalTo(70);
     }];
     [self.APIKeyTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(40);
