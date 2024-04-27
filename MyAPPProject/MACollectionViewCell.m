@@ -37,7 +37,7 @@
     self.title.text = [data objectForKey:@"title"];
     self.title.font = [UIFont fontWithName:self.title.font.fontName size:15];
     
-    [self configTableView];
+    [self configCollectionView];
     
     [self.contentView addSubview:self.authorPic];
     [self.contentView addSubview:self.authorName];
@@ -63,8 +63,8 @@
     }];
 }
 
-- (void)configTableView {
-    
+- (void)configCollectionView {
+    [self.pics reloadData];
 }
 
 - (void)configPicsArray {
